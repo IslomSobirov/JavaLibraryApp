@@ -19,6 +19,15 @@ public class ConnectDb {
             + "ROLE VARCHAR(15) NOT NULL)";
 
 
+    private static final String LIBRARY_TABLE_SQL="CREATE TABLE library ("
+            + "ID INT GENERATED ALWAYS AS IDENTITY not null PRIMARY KEY,"
+            + "title VARCHAR(45) NOT NULL,"
+            + "subject VARCHAR(45) NOT NULL,"
+            + "author VARCHAR(45) NOT NULL,"
+            + "ISBN INT NOT NULL,"
+            + "publish_date DATE NOT NULL)";
+
+
     public void connect(){
         try {
 
@@ -43,6 +52,18 @@ public class ConnectDb {
 
             stmt = conn.createStatement();
             stmt.executeUpdate(TABLE_SQL);
+            System.out.println("Table is created");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void createLibraryTable()
+    {
+        try{
+
+            stmt = conn.createStatement();
+            stmt.executeUpdate(LIBRARY_TABLE_SQL);
             System.out.println("Table is created");
         }catch (SQLException e){
             e.printStackTrace();
