@@ -50,8 +50,9 @@ public class StudentConfig {
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 String created_at = resultSet.getString("created_at");
+                String id = resultSet.getString("id");
 
-                System.out.println("Student name: " +name+ "\n" + "Created at " + created_at);
+                System.out.println("Student name: " +name+ "\n" + "Created at " + created_at + "ID: " + id);
             }
 
         }catch (SQLException e){
@@ -92,6 +93,24 @@ public class StudentConfig {
             stmt.executeUpdate();
             stmt.close();
             System.out.println("Successfully deleted!");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+
+    public void updateStudent(int id, String name, String email, String password)
+    {
+        final String UPDATE_STUDENT = "UPDATE users SET " +
+                "name = '" + name + "'," +
+                "email =  '" + email + "'," +
+                "password = '" + password +"' "+
+            "WHERE ID = " + id + " AND ROLE = 'student'";
+        try{
+            PreparedStatement stmt = con.conn.prepareStatement(UPDATE_STUDENT);
+            stmt.executeUpdate();
+            stmt.close();
+            System.out.println("Updated");
         }catch (SQLException e){
             e.printStackTrace();
         }

@@ -96,4 +96,22 @@ public class AdminConfig {
             e.printStackTrace();
         }
     }
+
+
+    public void updateAdmin(int id, String name, String email, String password)
+    {
+        final String UPDATE_ADMIN = "UPDATE users SET " +
+                "name = '" + name + "'," +
+                "email =  '" + email + "'," +
+                "password = '" + password +"' "+
+                "WHERE ID = " + id + " AND ROLE = 'admin'";
+        try{
+            PreparedStatement stmt = con.conn.prepareStatement(UPDATE_ADMIN);
+            stmt.executeUpdate();
+            stmt.close();
+            System.out.println("Updated");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

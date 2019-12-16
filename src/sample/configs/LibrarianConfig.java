@@ -96,6 +96,23 @@ public class LibrarianConfig {
         }
     }
 
+    public void updateLibrarian(int id, String name, String email, String password)
+    {
+        final String UPDATE_LIBRARIAN = "UPDATE users SET " +
+                "name = '" + name + "'," +
+                "email =  '" + email + "'," +
+                "password = '" + password +"' "+
+                "WHERE ID = " + id + " AND ROLE = 'librarian'";
+        try{
+            PreparedStatement stmt = con.conn.prepareStatement(UPDATE_LIBRARIAN);
+            stmt.executeUpdate();
+            stmt.close();
+            System.out.println("Updated");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
 
 
 }
