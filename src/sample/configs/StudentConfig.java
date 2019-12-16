@@ -73,9 +73,25 @@ public class StudentConfig {
                 String name = resultSet.getString("name");
                 String created_at = resultSet.getString("created_at");
 
+
                 System.out.println("Student name: " +name+ "\n" + "Created at " + created_at);
             }
+            stmt.close();
 
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteStudent(int id)
+    {
+        final String DELETE_STUDENT = "DELETE " +
+                "FROM users WHERE ID = "+ id + " AND ROLE = 'student'";
+        try{
+            PreparedStatement stmt  = con.conn.prepareStatement(DELETE_STUDENT);
+            stmt.executeUpdate();
+            stmt.close();
+            System.out.println("Successfully deleted!");
         }catch (SQLException e){
             e.printStackTrace();
         }

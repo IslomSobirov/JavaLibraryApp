@@ -82,5 +82,20 @@ public class LibrarianConfig {
     }
 
 
+    public void deleteLibrarian(int id)
+    {
+        final String DELETE_LIBRARIAN = "DELETE " +
+                "FROM users WHERE ID = "+ id + " AND ROLE = 'librarian'";
+        try{
+            PreparedStatement stmt  = con.conn.prepareStatement(DELETE_LIBRARIAN);
+            stmt.executeUpdate();
+            stmt.close();
+            System.out.println("Successfully deleted!");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+
 
 }

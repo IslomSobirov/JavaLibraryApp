@@ -82,4 +82,18 @@ public class AdminConfig {
             e.printStackTrace();
         }
     }
+
+    public void deleteAdmin(int id)
+    {
+        final String DELETE_ADMIN = "DELETE " +
+                "FROM users WHERE ID = "+ id + " AND ROLE = 'admin'";
+        try{
+            PreparedStatement stmt  = con.conn.prepareStatement(DELETE_ADMIN);
+            stmt.executeUpdate();
+            stmt.close();
+            System.out.println("Successfully deleted!");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

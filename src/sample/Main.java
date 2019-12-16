@@ -45,7 +45,9 @@ public class Main {
         //student.createStudent("Islomaewea2", "arrar", "33244");
 
 //        student.selectAllStudents();
-        student.selectById(1);
+//        student.selectById(1);
+        student.deleteStudent(2);
+        student.selectAllStudents();
 
 
 
