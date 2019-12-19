@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="485.0" prefWidth="635.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.controllers.book.editBook">
+    <children>
+        <VBox layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="635.0">
+            <children>
+                <TextField fx:id="bookTitle" prefHeight="71.0" prefWidth="634.9999000000025" promptText="Book title">
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="bookSubject" prefHeight="60.0" prefWidth="600.0" promptText="Book subject" text="">
+                    <VBox.margin>
+                        <Insets bottom="10.0" fx:id="x1" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="bookAuthor" prefHeight="60.0" prefWidth="635.0" promptText="Author" VBox.margin="$x1" />
+                <TextField fx:id="isbn" prefHeight="60.0" prefWidth="600.0" promptText="ISBN" VBox.margin="$x1" />
+                <TextField fx:id="publish_date" prefHeight="60.0" prefWidth="600.0" promptText="Publish date" />
+            </children>
+        </VBox>
+        <HBox layoutX="38.0" layoutY="400.0" prefHeight="71.0" prefWidth="560.0">
+            <children>
+                <Button mnemonicParsing="false" prefHeight="71.0" prefWidth="280.0" text="Create">
+                    <HBox.margin>
+                        <Insets right="5.0" />
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="71.0" prefWidth="280.0" text="Cancel">
+                    <HBox.margin>
+                        <Insets left="5.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

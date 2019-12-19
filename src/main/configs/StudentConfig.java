@@ -1,6 +1,7 @@
-package sample.configs;
+package main.configs;
 
-import sample.ConnectDb;
+
+import main.ConnectDb;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,29 +9,29 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
 
-public class LibraryConfig {
+public class StudentConfig {
     ConnectDb con;
     Statement stmt;
 
-    public LibraryConfig(ConnectDb con)
+    public StudentConfig(ConnectDb con)
     {
         this.con = con;
     }
 
 
-    public void createLibrary(String title, String subject, String author, int isbn, String publish_date)
-    {
+
+    public void createStudent(String name, String email, String password){
         java.sql.Date ourJavaDateObject = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
-        final String STUDENT_CREATE = "INSERT INTO library ( title, subject, author, ISBN, publish_date)" +
-                " VALUES ('" + title + "', '" + subject + "' , '" + author + "', " + isbn + ",'" + publish_date + "')";
+        final String STUDENT_CREATE = "INSERT INTO users ( NAME, CREATED_AT, EMAIL, PASSWORD, ROLE)" +
+                " VALUES ('" + name + "' , ? ,'" + email + "' , '" + password + "', 'student')";
         try{
 
-
+            stmt = con.conn.createStatement();
             PreparedStatement stmt = con.conn.prepareStatement(STUDENT_CREATE);
-
+            stmt.setDate(1, ourJavaDateObject);
             stmt.executeUpdate();
-            System.out.println("Book is added!");
+            System.out.println("Student created");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -104,7 +105,7 @@ public class LibraryConfig {
                 "name = '" + name + "'," +
                 "email =  '" + email + "'," +
                 "password = '" + password +"' "+
-                "WHERE ID = " + id + " AND ROLE = 'student'";
+            "WHERE ID = " + id + " AND ROLE = 'student'";
         try{
             PreparedStatement stmt = con.conn.prepareStatement(UPDATE_STUDENT);
             stmt.executeUpdate();
@@ -114,4 +115,6 @@ public class LibraryConfig {
             e.printStackTrace();
         }
     }
+
+
 }

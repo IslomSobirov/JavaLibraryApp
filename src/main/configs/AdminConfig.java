@@ -1,57 +1,59 @@
-package sample.configs;
+package main.configs;
 
-import sample.ConnectDb;
 
+import main.ConnectDb;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
 
-public class LibrarianConfig {
+public class AdminConfig {
+
     ConnectDb con;
     Statement stmt;
-
-    public LibrarianConfig(ConnectDb con)
+    public AdminConfig(ConnectDb con)
     {
         this.con = con;
     }
 
 
 
+    public void CreateAdmin(String name, String email, String password)
+    {
 
-
-    public void createLibrarian(String name, String email, String password){
         java.sql.Date ourJavaDateObject = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
-        final String LIBRARIAN_CREATE = "INSERT INTO users ( NAME, CREATED_AT, EMAIL, PASSWORD, ROLE)" +
-                " VALUES ('" + name + "' , ? ,'" + email + "' , '" + password + "', 'librarian')";
+        final String ADMIN_CREATE = "INSERT INTO admins ( NAME, CREATED_AT, EMAIL, PASSWORD, ROLE)" +
+                " VALUES ('" + name + "' , ? ,'" + email + "' , '" + password + "', 'admin')";
         try{
 
             stmt = con.conn.createStatement();
-            PreparedStatement stmt = con.conn.prepareStatement(LIBRARIAN_CREATE);
+            PreparedStatement stmt = con.conn.prepareStatement(ADMIN_CREATE);
             stmt.setDate(1, ourJavaDateObject);
             stmt.executeUpdate();
-            System.out.println("Librarian created");
+            System.out.println("Admin created");
         }catch (SQLException e){
             e.printStackTrace();
         }
     }
 
+
+
     public void selectAllAdmins()
     {
-        final String GET_ALL_LIBRARIANS ="SELECT * " +
-                "FROM users WHERE ROLE = 'librarian'";
+        final String GET_ALL_ADMINS ="SELECT * " +
+                "FROM users WHERE ROLE = 'admin'";
         try{
 
             stmt = con.conn.createStatement();
             ResultSet resultSet;
-            resultSet = stmt.executeQuery(GET_ALL_LIBRARIANS);
+            resultSet = stmt.executeQuery(GET_ALL_ADMINS);
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 String created_at = resultSet.getString("created_at");
 
-                System.out.println("Librarian name: " +name+ "\n" + "Created at " + created_at);
+                System.out.println("Admin name: " +name+ "\n" + "Created at " + created_at);
             }
 
         }catch (SQLException e){
@@ -62,18 +64,18 @@ public class LibrarianConfig {
 
     public void selectById(int id)
     {
-        final String GET_LIBRARIAN ="SELECT * " +
+        final String GET_ADMIN ="SELECT * " +
                 "FROM users WHERE ID = "+ id + " ";
         try{
 
             stmt = con.conn.createStatement();
             ResultSet resultSet;
-            resultSet = stmt.executeQuery(GET_LIBRARIAN);
+            resultSet = stmt.executeQuery(GET_ADMIN);
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 String created_at = resultSet.getString("created_at");
 
-                System.out.println("Librarian name: " +name+ "\n" + "Created at " + created_at);
+                System.out.println("Admin name: " +name+ "\n" + "Created at " + created_at);
             }
 
         }catch (SQLException e){
@@ -81,13 +83,12 @@ public class LibrarianConfig {
         }
     }
 
-
-    public void deleteLibrarian(int id)
+    public void deleteAdmin(int id)
     {
-        final String DELETE_LIBRARIAN = "DELETE " +
-                "FROM users WHERE ID = "+ id + " AND ROLE = 'librarian'";
+        final String DELETE_ADMIN = "DELETE " +
+                "FROM users WHERE ID = "+ id + " AND ROLE = 'admin'";
         try{
-            PreparedStatement stmt  = con.conn.prepareStatement(DELETE_LIBRARIAN);
+            PreparedStatement stmt  = con.conn.prepareStatement(DELETE_ADMIN);
             stmt.executeUpdate();
             stmt.close();
             System.out.println("Successfully deleted!");
@@ -96,15 +97,16 @@ public class LibrarianConfig {
         }
     }
 
-    public void updateLibrarian(int id, String name, String email, String password)
+
+    public void updateAdmin(int id, String name, String email, String password)
     {
-        final String UPDATE_LIBRARIAN = "UPDATE users SET " +
+        final String UPDATE_ADMIN = "UPDATE users SET " +
                 "name = '" + name + "'," +
                 "email =  '" + email + "'," +
                 "password = '" + password +"' "+
-                "WHERE ID = " + id + " AND ROLE = 'librarian'";
+                "WHERE ID = " + id + " AND ROLE = 'admin'";
         try{
-            PreparedStatement stmt = con.conn.prepareStatement(UPDATE_LIBRARIAN);
+            PreparedStatement stmt = con.conn.prepareStatement(UPDATE_ADMIN);
             stmt.executeUpdate();
             stmt.close();
             System.out.println("Updated");
@@ -112,7 +114,4 @@ public class LibrarianConfig {
             e.printStackTrace();
         }
     }
-
-
-
 }

@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,8 +7,8 @@ import java.sql.Statement;
 
 public class ConnectDb {
 
-    public Connection conn = null;
-    Statement stmt = null;
+    public Connection conn;
+    Statement stmt;
 
     private static final String TABLE_SQL="CREATE TABLE users ("
             + "ID INT GENERATED ALWAYS AS IDENTITY not null PRIMARY KEY,"
@@ -61,7 +61,6 @@ public class ConnectDb {
     public void createLibraryTable()
     {
         try{
-
             stmt = conn.createStatement();
             stmt.executeUpdate(LIBRARY_TABLE_SQL);
             System.out.println("Table is created");

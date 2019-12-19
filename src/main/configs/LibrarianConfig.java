@@ -1,7 +1,6 @@
-package sample.configs;
+package main.configs;
 
-
-import sample.ConnectDb;
+import main.ConnectDb;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,50 +8,50 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
 
-public class StudentConfig {
+public class LibrarianConfig {
     ConnectDb con;
     Statement stmt;
 
-    public StudentConfig(ConnectDb con)
+    public LibrarianConfig(ConnectDb con)
     {
         this.con = con;
     }
 
 
 
-    public void createStudent(String name, String email, String password){
+
+
+    public void createLibrarian(String name, String email, String password){
         java.sql.Date ourJavaDateObject = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
-        final String STUDENT_CREATE = "INSERT INTO users ( NAME, CREATED_AT, EMAIL, PASSWORD, ROLE)" +
-                " VALUES ('" + name + "' , ? ,'" + email + "' , '" + password + "', 'student')";
+        final String LIBRARIAN_CREATE = "INSERT INTO users ( NAME, CREATED_AT, EMAIL, PASSWORD, ROLE)" +
+                " VALUES ('" + name + "' , ? ,'" + email + "' , '" + password + "', 'librarian')";
         try{
 
             stmt = con.conn.createStatement();
-            PreparedStatement stmt = con.conn.prepareStatement(STUDENT_CREATE);
+            PreparedStatement stmt = con.conn.prepareStatement(LIBRARIAN_CREATE);
             stmt.setDate(1, ourJavaDateObject);
             stmt.executeUpdate();
-            System.out.println("Student created");
+            System.out.println("Librarian created");
         }catch (SQLException e){
             e.printStackTrace();
         }
     }
 
-
-    public void selectAllStudents()
+    public void selectAllAdmins()
     {
-        final String GET_ALL_STUDENT ="SELECT * " +
-                "FROM users WHERE ROLE = 'student'";
+        final String GET_ALL_LIBRARIANS ="SELECT * " +
+                "FROM users WHERE ROLE = 'librarian'";
         try{
 
             stmt = con.conn.createStatement();
             ResultSet resultSet;
-            resultSet = stmt.executeQuery(GET_ALL_STUDENT);
+            resultSet = stmt.executeQuery(GET_ALL_LIBRARIANS);
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 String created_at = resultSet.getString("created_at");
-                String id = resultSet.getString("id");
 
-                System.out.println("Student name: " +name+ "\n" + "Created at " + created_at + "ID: " + id);
+                System.out.println("Librarian name: " +name+ "\n" + "Created at " + created_at);
             }
 
         }catch (SQLException e){
@@ -63,33 +62,32 @@ public class StudentConfig {
 
     public void selectById(int id)
     {
-        final String GET_STUDENT ="SELECT * " +
+        final String GET_LIBRARIAN ="SELECT * " +
                 "FROM users WHERE ID = "+ id + " ";
         try{
 
             stmt = con.conn.createStatement();
             ResultSet resultSet;
-            resultSet = stmt.executeQuery(GET_STUDENT);
+            resultSet = stmt.executeQuery(GET_LIBRARIAN);
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 String created_at = resultSet.getString("created_at");
 
-
-                System.out.println("Student name: " +name+ "\n" + "Created at " + created_at);
+                System.out.println("Librarian name: " +name+ "\n" + "Created at " + created_at);
             }
-            stmt.close();
 
         }catch (SQLException e){
             e.printStackTrace();
         }
     }
 
-    public void deleteStudent(int id)
+
+    public void deleteLibrarian(int id)
     {
-        final String DELETE_STUDENT = "DELETE " +
-                "FROM users WHERE ID = "+ id + " AND ROLE = 'student'";
+        final String DELETE_LIBRARIAN = "DELETE " +
+                "FROM users WHERE ID = "+ id + " AND ROLE = 'librarian'";
         try{
-            PreparedStatement stmt  = con.conn.prepareStatement(DELETE_STUDENT);
+            PreparedStatement stmt  = con.conn.prepareStatement(DELETE_LIBRARIAN);
             stmt.executeUpdate();
             stmt.close();
             System.out.println("Successfully deleted!");
@@ -98,16 +96,15 @@ public class StudentConfig {
         }
     }
 
-
-    public void updateStudent(int id, String name, String email, String password)
+    public void updateLibrarian(int id, String name, String email, String password)
     {
-        final String UPDATE_STUDENT = "UPDATE users SET " +
+        final String UPDATE_LIBRARIAN = "UPDATE users SET " +
                 "name = '" + name + "'," +
                 "email =  '" + email + "'," +
                 "password = '" + password +"' "+
-            "WHERE ID = " + id + " AND ROLE = 'student'";
+                "WHERE ID = " + id + " AND ROLE = 'librarian'";
         try{
-            PreparedStatement stmt = con.conn.prepareStatement(UPDATE_STUDENT);
+            PreparedStatement stmt = con.conn.prepareStatement(UPDATE_LIBRARIAN);
             stmt.executeUpdate();
             stmt.close();
             System.out.println("Updated");
@@ -115,6 +112,7 @@ public class StudentConfig {
             e.printStackTrace();
         }
     }
+
 
 
 }
