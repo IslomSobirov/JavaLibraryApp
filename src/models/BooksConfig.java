@@ -1,4 +1,4 @@
-package main.configs;
+package models;
 
 import javafx.scene.control.Alert;
 import main.ConnectDb;
@@ -28,6 +28,7 @@ public class BooksConfig {
 
             PreparedStatement stmt = con.conn.prepareStatement(BOOK_CREATE);
             stmt.executeUpdate();
+            stmt.close();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Book is added");
             alert.setContentText("Book has been created successfully");

@@ -1,5 +1,6 @@
-package main.configs;
+package models;
 
+import javafx.scene.control.Alert;
 import main.ConnectDb;
 
 import java.sql.PreparedStatement;
@@ -32,9 +33,21 @@ public class LibrarianConfig {
             PreparedStatement stmt = con.conn.prepareStatement(LIBRARIAN_CREATE);
             stmt.setDate(1, ourJavaDateObject);
             stmt.executeUpdate();
+            stmt.close();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Librarian has been added successfully");
+            alert.showAndWait();
             System.out.println("Librarian created");
+            return;
+
         }catch (SQLException e){
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("You have typed something wrong");
+            alert.showAndWait();
+            return;
         }
     }
 
@@ -90,6 +103,7 @@ public class LibrarianConfig {
             PreparedStatement stmt  = con.conn.prepareStatement(DELETE_LIBRARIAN);
             stmt.executeUpdate();
             stmt.close();
+
             System.out.println("Successfully deleted!");
         }catch (SQLException e){
             e.printStackTrace();

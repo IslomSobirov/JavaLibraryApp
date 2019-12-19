@@ -1,4 +1,4 @@
-package main.configs;
+package models;
 
 
 import main.ConnectDb;

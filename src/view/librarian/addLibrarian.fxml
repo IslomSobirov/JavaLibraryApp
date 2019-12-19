@@ -11,24 +11,24 @@
   <children>
     <VBox layoutX="29.0" layoutY="64.0" prefHeight="255.0" prefWidth="704.0">
       <children>
-        <Label alignment="CENTER" prefHeight="45.0" prefWidth="711.9998779296875" text="Create Student" textAlignment="LEFT" />
-        <TextField fx:id="studentName" prefHeight="45.0" prefWidth="689.9999000000025" promptText="Name">
+        <Label alignment="CENTER" prefHeight="45.0" prefWidth="711.9998779296875" text="Create Librarian" textAlignment="LEFT" />
+        <TextField id="studentName" fx:id="librarianName" prefHeight="45.0" prefWidth="689.9999000000025" promptText="Name">
           <VBox.margin>
             <Insets bottom="10.0" fx:id="x1" />
           </VBox.margin>
         </TextField>
-        <TextField fx:id="studentEmail" prefHeight="45.0" prefWidth="690.0" promptText="Email" VBox.margin="$x1" />
-        <PasswordField fx:id="studentPassword" prefHeight="45.0" prefWidth="704.0" promptText="password">
+        <TextField id="studentEmail" fx:id="librarianEmail" prefHeight="45.0" prefWidth="690.0" promptText="Email" VBox.margin="$x1" />
+        <PasswordField id="studentPassword" fx:id="librarianPassword" prefHeight="45.0" prefWidth="704.0" promptText="password">
           <VBox.margin>
             <Insets bottom="10.0" fx:id="x1" />
           </VBox.margin>
         </PasswordField>
-        <PasswordField fx:id="studentPasswordRepeat" prefHeight="45.0" prefWidth="704.0" promptText="password repeat" />
+        <PasswordField id="studentPasswordRepeat" fx:id="librarianPasswordRepeat" prefHeight="45.0" prefWidth="704.0" promptText="password repeat" />
       </children>
     </VBox>
     <HBox layoutX="81.0" layoutY="357.0" prefHeight="45.0" prefWidth="600.0">
       <children>
-        <Button fx:id="createButton" mnemonicParsing="false" onAction="#addStudent" prefHeight="45.0" prefWidth="249.0" text="Create">
+        <Button fx:id="createButton" mnemonicParsing="false" onAction="#addLibrarian" prefHeight="45.0" prefWidth="249.0" text="Create">
           <HBox.margin>
             <Insets right="102.0" />
           </HBox.margin>

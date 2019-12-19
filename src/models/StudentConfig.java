@@ -1,6 +1,7 @@
-package main.configs;
+package models;
 
 
+import javafx.scene.control.Alert;
 import main.ConnectDb;
 
 import java.sql.PreparedStatement;
@@ -31,9 +32,20 @@ public class StudentConfig {
             PreparedStatement stmt = con.conn.prepareStatement(STUDENT_CREATE);
             stmt.setDate(1, ourJavaDateObject);
             stmt.executeUpdate();
+            stmt.close();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Student has been added successfully");
+            alert.showAndWait();
             System.out.println("Student created");
+            return;
         }catch (SQLException e){
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("You have typed something wrong");
+            alert.showAndWait();
+            return;
         }
     }
 

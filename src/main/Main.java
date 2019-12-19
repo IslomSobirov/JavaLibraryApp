@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Statement;
 
 
 public class Main extends Application {
@@ -18,7 +19,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource("/view/book/addBook.fxml"));
+        Parent loader = FXMLLoader.load(getClass().getResource("/view/student/addStudent.fxml"));
         this.primaryStage = primaryStage;
 
         Scene scene = new Scene(loader);
@@ -53,9 +54,10 @@ public class Main extends Application {
 
         launch(args);
 
-        //Statement stmt;
+//        Statement stmt;
 //        ConnectDb con = new ConnectDb();
 //        con.connect();
+
 
 
 

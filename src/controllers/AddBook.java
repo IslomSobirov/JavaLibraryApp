@@ -1,8 +1,6 @@
 package controllers;
 
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import main.ConnectDb;
 import main.Main;
-import main.configs.BooksConfig;
+import models.BooksConfig;
 
 
 public class AddBook {
