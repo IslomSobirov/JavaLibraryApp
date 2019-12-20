@@ -51,7 +51,7 @@ public class LibrarianConfig {
         }
     }
 
-    public void selectAllAdmins()
+    public void selectAllLibrarians()
     {
         final String GET_ALL_LIBRARIANS ="SELECT * " +
                 "FROM users WHERE ROLE = 'librarian'";
@@ -73,6 +73,7 @@ public class LibrarianConfig {
     }
 
 
+    //Select librarian from id
     public void selectById(int id)
     {
         final String GET_LIBRARIAN ="SELECT * " +
@@ -95,6 +96,7 @@ public class LibrarianConfig {
     }
 
 
+    //Delete librarian from database
     public void deleteLibrarian(int id)
     {
         final String DELETE_LIBRARIAN = "DELETE " +
@@ -110,6 +112,8 @@ public class LibrarianConfig {
         }
     }
 
+
+    //Update librarian
     public void updateLibrarian(int id, String name, String email, String password)
     {
         final String UPDATE_LIBRARIAN = "UPDATE users SET " +
@@ -125,6 +129,39 @@ public class LibrarianConfig {
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+
+
+    //Check if user already exists
+    public boolean checkIfExist(String email)
+    {
+
+        final String GET_STUDENT ="SELECT * " +
+                "FROM users WHERE EMAIL = '" + email + "' AND ROLE = 'librarian' ";
+        try{
+            stmt = con.conn.createStatement();
+            ResultSet resultSet;
+            resultSet = stmt.executeQuery(GET_STUDENT);
+
+            while (resultSet.next()) {
+
+                String email1 = resultSet.getString("email");
+                if (email.equals(email1))
+                {
+                    stmt.close();
+                    return true;
+                }
+
+            }
+            stmt.close();
+            return false;
+
+        }catch (SQLException e){
+            e.printStackTrace();
+            return true;
+        }
+
     }
 
 

@@ -59,13 +59,23 @@ public class StudentConfig {
             stmt = con.conn.createStatement();
             ResultSet resultSet;
             resultSet = stmt.executeQuery(GET_ALL_STUDENT);
+//            while (resultSet.next()) {
+//                String name = resultSet.getString("name");
+//                String created_at = resultSet.getString("created_at");
+//                String id = resultSet.getString("id");
+//
+//                System.out.println("Student name: " +name+ "\n" + "Created at " + created_at + "ID: " + id);
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
-                String created_at = resultSet.getString("created_at");
-                String id = resultSet.getString("id");
+//                String created_at = resultSet.getString("created_at");
+                String email1 = resultSet.getString("email");
+                int id = resultSet.getInt("id");
 
-                System.out.println("Student name: " +name+ "\n" + "Created at " + created_at + "ID: " + id);
+
+                System.out.println("Student name: " +name+ "\n" + "Email " + email1 + " Id: " + id);
+
             }
+
 
         }catch (SQLException e){
             e.printStackTrace();
@@ -126,6 +136,40 @@ public class StudentConfig {
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public boolean checkIfExist(String email)
+    {
+
+        final String GET_STUDENT ="SELECT * " +
+                "FROM users WHERE EMAIL = '" + email + "' AND ROLE = 'student' ";
+
+        try{
+
+        stmt = con.conn.createStatement();
+        ResultSet resultSet;
+        resultSet = stmt.executeQuery(GET_STUDENT);
+
+        while (resultSet.next()) {
+
+            String email1 = resultSet.getString("email");
+            if (email.equals(email1))
+            {
+                stmt.close();
+                return true;
+
+            }
+
+        }
+        stmt.close();
+        return false;
+
+    }catch (SQLException e){
+        e.printStackTrace();
+
+        return true;
+    }
+
     }
 
 

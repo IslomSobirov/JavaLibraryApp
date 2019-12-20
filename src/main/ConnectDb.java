@@ -70,6 +70,18 @@ public class ConnectDb {
     }
 
 
+    public void close(ConnectDb con)
+    {
+        try{
+            con.conn.close();
+            con.stmt.close();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 

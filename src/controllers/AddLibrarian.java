@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import main.ConnectDb;
 import models.LibrarianConfig;
 import models.StudentConfig;
@@ -26,6 +28,9 @@ public class AddLibrarian {
 
     @FXML
     private Button createButton;
+
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private TextField librarianEmail;
@@ -54,12 +59,21 @@ public class AddLibrarian {
         String password = librarianPassword.getText();
         String passwordRepeat = librarianPasswordRepeat.getText();
 
-
+        //Create librarian model and provide connection
+        LibrarianConfig librarian = new LibrarianConfig(con);
         //Check weather all fields are filled
         if (name.isEmpty() || email.isEmpty() || password.isEmpty() || passwordRepeat.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please fill in all fields");
+            alert.showAndWait();
+            return;
+        }
+
+        else if(librarian.checkIfExist(email)){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Password fields has to be same");
             alert.showAndWait();
             return;
         }
@@ -71,14 +85,15 @@ public class AddLibrarian {
             alert.showAndWait();
             return;
         }
-        //Create librarian model and provide connection
-        LibrarianConfig librarian = new LibrarianConfig(con);
+
         //Create librarian
         librarian.createLibrarian(name, email, password);
     }
 
     @FXML
     void cancel(ActionEvent event) {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

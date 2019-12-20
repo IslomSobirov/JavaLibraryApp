@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import models.StudentConfig;
 
 import java.io.IOException;
 import java.sql.Statement;
@@ -32,7 +33,7 @@ public class Main extends Application {
     public void bookCreate()
     {
         try{
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/book/addBook.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/student/addStudent.fxml"));
             AnchorPane pane = loader.load();
             Controller controller = loader.getController();
             controller.setMain(this);
@@ -57,6 +58,11 @@ public class Main extends Application {
 //        Statement stmt;
 //        ConnectDb con = new ConnectDb();
 //        con.connect();
+//        StudentConfig student = new StudentConfig(con);
+//        System.out.println(student.checkIfExist("atomm262@gmail.com"));
+
+
+//        student.selectAllStudents();
 
 
 

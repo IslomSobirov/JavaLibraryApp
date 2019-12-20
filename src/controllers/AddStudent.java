@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import main.ConnectDb;
 import models.StudentConfig;
 
@@ -22,6 +24,9 @@ public class AddStudent {
 
     @FXML
     private Button cancelButton;
+
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private Button createButton;
@@ -54,6 +59,9 @@ public class AddStudent {
         String passwordRepeat = studentPasswordRepeat.getText();
 
 
+        //Create student model and provide connection
+        StudentConfig student = new StudentConfig(con);
+
         //Check weather all fields are filled
         if (name.isEmpty() || email.isEmpty() || password.isEmpty() || passwordRepeat.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -63,6 +71,15 @@ public class AddStudent {
             return;
         }
 
+        else if(student.checkIfExist(email)){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText(email + " is being used by another student");
+            alert.showAndWait();
+            return;
+        }
+
+
         else if(!password.equals(passwordRepeat)){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -70,8 +87,11 @@ public class AddStudent {
             alert.showAndWait();
             return;
         }
-        //Create student model and provide connection
-        StudentConfig student = new StudentConfig(con);
+
+
+
+
+
         //Create student
         student.createStudent(name, email, password);
 
@@ -79,6 +99,8 @@ public class AddStudent {
 
     @FXML
     void cancel(ActionEvent event) {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
