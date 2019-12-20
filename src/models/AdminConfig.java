@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
 
-public class AdminConfig {
+public class AdminConfig implements Person{
 
     ConnectDb con;
     Statement stmt;
@@ -19,7 +19,7 @@ public class AdminConfig {
 
 
 
-    public void CreateAdmin(String name, String email, String password)
+    public void create(String name, String email, String password)
     {
 
         java.sql.Date ourJavaDateObject = new java.sql.Date(Calendar.getInstance().getTime().getTime());
@@ -40,7 +40,7 @@ public class AdminConfig {
 
 
 
-    public void selectAllAdmins()
+    public ResultSet selectAll()
     {
         final String GET_ALL_ADMINS ="SELECT * " +
                 "FROM users WHERE ROLE = 'admin'";
@@ -49,20 +49,22 @@ public class AdminConfig {
             stmt = con.conn.createStatement();
             ResultSet resultSet;
             resultSet = stmt.executeQuery(GET_ALL_ADMINS);
-            while (resultSet.next()) {
-                String name = resultSet.getString("name");
-                String created_at = resultSet.getString("created_at");
-
-                System.out.println("Admin name: " +name+ "\n" + "Created at " + created_at);
-            }
+//            while (resultSet.next()) {
+//                String name = resultSet.getString("name");
+//                String created_at = resultSet.getString("created_at");
+//
+//                System.out.println("Admin name: " +name+ "\n" + "Created at " + created_at);
+//            }
+            return resultSet;
 
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
     }
 
 
-    public void selectById(int id)
+    public ResultSet selectById(int id)
     {
         final String GET_ADMIN ="SELECT * " +
                 "FROM users WHERE ID = "+ id + " ";
@@ -74,16 +76,23 @@ public class AdminConfig {
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 String created_at = resultSet.getString("created_at");
-
                 System.out.println("Admin name: " +name+ "\n" + "Created at " + created_at);
             }
+            return resultSet;
 
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
     }
 
-    public void deleteAdmin(int id)
+
+    public boolean checkIfExist(String email) {
+        return false;
+    }
+
+
+    public void delete(int id)
     {
         final String DELETE_ADMIN = "DELETE " +
                 "FROM users WHERE ID = "+ id + " AND ROLE = 'admin'";
@@ -98,7 +107,7 @@ public class AdminConfig {
     }
 
 
-    public void updateAdmin(int id, String name, String email, String password)
+    public void update(int id, String name, String email, String password)
     {
         final String UPDATE_ADMIN = "UPDATE users SET " +
                 "name = '" + name + "'," +

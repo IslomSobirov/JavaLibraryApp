@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
 
-public class LibrarianConfig {
+public class LibrarianConfig implements Person{
     ConnectDb con;
     Statement stmt;
 
@@ -22,13 +22,12 @@ public class LibrarianConfig {
 
 
 
-    public void createLibrarian(String name, String email, String password){
+    public void create(String name, String email, String password){
         java.sql.Date ourJavaDateObject = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
         final String LIBRARIAN_CREATE = "INSERT INTO users ( NAME, CREATED_AT, EMAIL, PASSWORD, ROLE)" +
                 " VALUES ('" + name + "' , ? ,'" + email + "' , '" + password + "', 'librarian')";
         try{
-
             stmt = con.conn.createStatement();
             PreparedStatement stmt = con.conn.prepareStatement(LIBRARIAN_CREATE);
             stmt.setDate(1, ourJavaDateObject);
@@ -40,7 +39,6 @@ public class LibrarianConfig {
             alert.showAndWait();
             System.out.println("Librarian created");
             return;
-
         }catch (SQLException e){
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -51,7 +49,7 @@ public class LibrarianConfig {
         }
     }
 
-    public void selectAllLibrarians()
+    public ResultSet selectAll()
     {
         final String GET_ALL_LIBRARIANS ="SELECT * " +
                 "FROM users WHERE ROLE = 'librarian'";
@@ -60,44 +58,36 @@ public class LibrarianConfig {
             stmt = con.conn.createStatement();
             ResultSet resultSet;
             resultSet = stmt.executeQuery(GET_ALL_LIBRARIANS);
-            while (resultSet.next()) {
-                String name = resultSet.getString("name");
-                String created_at = resultSet.getString("created_at");
-
-                System.out.println("Librarian name: " +name+ "\n" + "Created at " + created_at);
-            }
+            return resultSet;
 
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
     }
 
 
     //Select librarian from id
-    public void selectById(int id)
+    public ResultSet selectById(int id)
     {
         final String GET_LIBRARIAN ="SELECT * " +
-                "FROM users WHERE ID = "+ id + " ";
+                "FROM users WHERE ID = "+ id + " AND ROLE = 'librarian' ";
         try{
 
             stmt = con.conn.createStatement();
             ResultSet resultSet;
             resultSet = stmt.executeQuery(GET_LIBRARIAN);
-            while (resultSet.next()) {
-                String name = resultSet.getString("name");
-                String created_at = resultSet.getString("created_at");
-
-                System.out.println("Librarian name: " +name+ "\n" + "Created at " + created_at);
-            }
+            return resultSet;
 
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
     }
 
 
     //Delete librarian from database
-    public void deleteLibrarian(int id)
+    public void delete(int id)
     {
         final String DELETE_LIBRARIAN = "DELETE " +
                 "FROM users WHERE ID = "+ id + " AND ROLE = 'librarian'";
@@ -114,7 +104,7 @@ public class LibrarianConfig {
 
 
     //Update librarian
-    public void updateLibrarian(int id, String name, String email, String password)
+    public void update(int id, String name, String email, String password)
     {
         final String UPDATE_LIBRARIAN = "UPDATE users SET " +
                 "name = '" + name + "'," +
@@ -136,32 +126,26 @@ public class LibrarianConfig {
     //Check if user already exists
     public boolean checkIfExist(String email)
     {
-
         final String GET_STUDENT ="SELECT * " +
                 "FROM users WHERE EMAIL = '" + email + "' AND ROLE = 'librarian' ";
         try{
             stmt = con.conn.createStatement();
             ResultSet resultSet;
             resultSet = stmt.executeQuery(GET_STUDENT);
-
             while (resultSet.next()) {
-
                 String email1 = resultSet.getString("email");
                 if (email.equals(email1))
                 {
                     stmt.close();
                     return true;
                 }
-
             }
             stmt.close();
             return false;
-
         }catch (SQLException e){
             e.printStackTrace();
             return true;
         }
-
     }
 
 

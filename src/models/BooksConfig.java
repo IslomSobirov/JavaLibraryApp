@@ -18,14 +18,11 @@ public class BooksConfig {
     }
 
 
-    public void createBook(String title, String subject, String author, int isbn, String published)
+    public void create(String title, String subject, String author, int isbn, String published)
     {
-
-
         final String BOOK_CREATE = "INSERT INTO library ( title, subject, author, ISBN, publish_date)" +
                 " VALUES ('" + title + "', '" + subject + "' , '" + author + "', " + isbn + ",'" + published + "')";
         try{
-
             PreparedStatement stmt = con.conn.prepareStatement(BOOK_CREATE);
             stmt.executeUpdate();
             stmt.close();
@@ -46,12 +43,11 @@ public class BooksConfig {
     }
 
 
-    public void selectAllBooks()
+    public void selectAll()
     {
         final String GET_ALL_STUDENT ="SELECT * " +
                 "FROM library";
         try{
-
             stmt = con.conn.createStatement();
             ResultSet resultSet;
             resultSet = stmt.executeQuery(GET_ALL_STUDENT);
@@ -59,10 +55,8 @@ public class BooksConfig {
                 String name = resultSet.getString("title");
                 String created_at = resultSet.getString("publish_date");
                 String id = resultSet.getString("id");
-
                 System.out.println("Student Title: " +name+ "\n" + "Publish date " + created_at + "Id: " + id);
             }
-
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -74,7 +68,6 @@ public class BooksConfig {
         final String GET_STUDENT ="SELECT * " +
                 "FROM library WHERE ID = " + id + " ";
         try{
-
             stmt = con.conn.createStatement();
             ResultSet resultSet;
             resultSet = stmt.executeQuery(GET_STUDENT);
@@ -82,7 +75,6 @@ public class BooksConfig {
                 String name = resultSet.getString("title");
                 String created_at = resultSet.getString("publish_date");
                 String idd = resultSet.getString("id");
-
                 System.out.println("Student Title: " +name+ "\n" + "Publish date " + created_at + "Id: " + idd);
             }
             stmt.close();
@@ -92,7 +84,7 @@ public class BooksConfig {
         }
     }
 
-    public void deleteBook(int id)
+    public void delete(int id)
     {
         final String DELETE_BOOK = "DELETE " +
                 "FROM library WHERE ID = " + id +"";
@@ -107,7 +99,7 @@ public class BooksConfig {
     }
 
 
-    public void updateBook(int id, String title, String subject, String author, int isbn, String publish_date)
+    public void update(int id, String title, String subject, String author, int isbn, String publish_date)
     {
         final String UPDATE_STUDENT = "UPDATE library SET " +
                 "title = '" + title + "'," +

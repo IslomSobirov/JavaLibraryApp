@@ -87,7 +87,7 @@ public class AddLibrarian {
         }
 
         //Create librarian
-        librarian.createLibrarian(name, email, password);
+        librarian.create(name, email, password);
     }
 
     @FXML

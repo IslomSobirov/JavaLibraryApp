@@ -77,7 +77,7 @@ public class AddBook {
 
         int isbn = Integer.parseInt(ISBN);
 
-        book.createBook(title, subject, author, isbn, published);
+        book.create(title, subject, author, isbn, published);
         System.out.println("created");
     }
 

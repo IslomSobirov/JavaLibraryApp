@@ -78,7 +78,7 @@ public class AddBook {
         //Create book class
         BooksConfig book = new BooksConfig(con);
         //Create book
-        book.createBook(title, subject, author, isbn, published);
+        book.create(title, subject, author, isbn, published);
 
 
 

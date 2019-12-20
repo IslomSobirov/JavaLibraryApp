@@ -93,7 +93,7 @@ public class AddStudent {
 
 
         //Create student
-        student.createStudent(name, email, password);
+        student.create(name, email, password);
 
     }
 

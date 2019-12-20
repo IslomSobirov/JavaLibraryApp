@@ -10,7 +10,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import models.StudentConfig;
 
+import javax.xml.transform.Result;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 
@@ -53,17 +56,31 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        launch(args);
+//        launch(args);
 
-//        Statement stmt;
-//        ConnectDb con = new ConnectDb();
-//        con.connect();
-//        StudentConfig student = new StudentConfig(con);
+        Statement stmt;
+        ConnectDb con = new ConnectDb();
+        con.connect();
+        StudentConfig student = new StudentConfig(con);
 //        System.out.println(student.checkIfExist("atomm262@gmail.com"));
 
 
-//        student.selectAllStudents();
 
+//        student.selectAll();
+        ResultSet result = student.selectById(201);
+        try{
+            while (result.next()) {
+                String name = result.getString("name");
+                String email1 = result.getString("email");
+                int id = result.getInt("id");
+                System.out.println("Student name: " +name+ "\n" + "Email " + email1 + " Id: " + id);
+
+
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
 
 
 

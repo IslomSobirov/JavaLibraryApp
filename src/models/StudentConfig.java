@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
 
-public class StudentConfig {
+public class StudentConfig implements Person{
     ConnectDb con;
     Statement stmt;
 
@@ -21,13 +21,12 @@ public class StudentConfig {
 
 
 
-    public void createStudent(String name, String email, String password){
+    public void create(String name, String email, String password){
         java.sql.Date ourJavaDateObject = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
         final String STUDENT_CREATE = "INSERT INTO users ( NAME, CREATED_AT, EMAIL, PASSWORD, ROLE)" +
                 " VALUES ('" + name + "' , ? ,'" + email + "' , '" + password + "', 'student')";
         try{
-
             stmt = con.conn.createStatement();
             PreparedStatement stmt = con.conn.prepareStatement(STUDENT_CREATE);
             stmt.setDate(1, ourJavaDateObject);
@@ -50,7 +49,7 @@ public class StudentConfig {
     }
 
 
-    public void selectAllStudents()
+    public ResultSet selectAll()
     {
         final String GET_ALL_STUDENT ="SELECT * " +
                 "FROM users WHERE ROLE = 'student'";
@@ -59,34 +58,19 @@ public class StudentConfig {
             stmt = con.conn.createStatement();
             ResultSet resultSet;
             resultSet = stmt.executeQuery(GET_ALL_STUDENT);
-//            while (resultSet.next()) {
-//                String name = resultSet.getString("name");
-//                String created_at = resultSet.getString("created_at");
-//                String id = resultSet.getString("id");
-//
-//                System.out.println("Student name: " +name+ "\n" + "Created at " + created_at + "ID: " + id);
-            while (resultSet.next()) {
-                String name = resultSet.getString("name");
-//                String created_at = resultSet.getString("created_at");
-                String email1 = resultSet.getString("email");
-                int id = resultSet.getInt("id");
-
-
-                System.out.println("Student name: " +name+ "\n" + "Email " + email1 + " Id: " + id);
-
-            }
-
+            return resultSet;
 
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
     }
 
 
-    public void selectById(int id)
+    public ResultSet selectById(int id)
     {
         final String GET_STUDENT ="SELECT * " +
-                "FROM users WHERE ID = "+ id + " ";
+                "FROM users WHERE ID = "+ id + " AND ROLE = 'student' ";
         try{
 
             stmt = con.conn.createStatement();
@@ -95,18 +79,19 @@ public class StudentConfig {
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 String created_at = resultSet.getString("created_at");
-
-
                 System.out.println("Student name: " +name+ "\n" + "Created at " + created_at);
             }
-            stmt.close();
+
+
+            return resultSet;
 
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
     }
 
-    public void deleteStudent(int id)
+    public void delete(int id)
     {
         final String DELETE_STUDENT = "DELETE " +
                 "FROM users WHERE ID = "+ id + " AND ROLE = 'student'";
@@ -121,7 +106,7 @@ public class StudentConfig {
     }
 
 
-    public void updateStudent(int id, String name, String email, String password)
+    public void update(int id, String name, String email, String password)
     {
         final String UPDATE_STUDENT = "UPDATE users SET " +
                 "name = '" + name + "'," +
@@ -140,36 +125,27 @@ public class StudentConfig {
 
     public boolean checkIfExist(String email)
     {
-
         final String GET_STUDENT ="SELECT * " +
                 "FROM users WHERE EMAIL = '" + email + "' AND ROLE = 'student' ";
-
         try{
-
         stmt = con.conn.createStatement();
         ResultSet resultSet;
         resultSet = stmt.executeQuery(GET_STUDENT);
 
         while (resultSet.next()) {
-
             String email1 = resultSet.getString("email");
             if (email.equals(email1))
             {
                 stmt.close();
                 return true;
-
             }
-
         }
         stmt.close();
         return false;
-
     }catch (SQLException e){
         e.printStackTrace();
-
         return true;
     }
-
     }
 
 
