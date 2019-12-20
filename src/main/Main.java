@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import models.BooksConfig;
 import models.StudentConfig;
 
 import javax.xml.transform.Result;
@@ -61,26 +62,29 @@ public class Main extends Application {
         Statement stmt;
         ConnectDb con = new ConnectDb();
         con.connect();
-        StudentConfig student = new StudentConfig(con);
+//        con.createLibraryTable();
+        BooksConfig book = new BooksConfig(con);
+
+//        StudentConfig student = new StudentConfig(con);
 //        System.out.println(student.checkIfExist("atomm262@gmail.com"));
 
 
 
 //        student.selectAll();
-        ResultSet result = student.selectById(201);
-        try{
-            while (result.next()) {
-                String name = result.getString("name");
-                String email1 = result.getString("email");
-                int id = result.getInt("id");
-                System.out.println("Student name: " +name+ "\n" + "Email " + email1 + " Id: " + id);
-
-
-            }
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+//        ResultSet result = student.selectById(201);
+//        try{
+//            while (result.next()) {
+//                String name = result.getString("name");
+//                String email1 = result.getString("email");
+//                int id = result.getInt("id");
+//                System.out.println("Student name: " +name+ "\n" + "Email " + email1 + " Id: " + id);
+//
+//
+//            }
+//
+//        }catch (SQLException e){
+//            e.printStackTrace();
+//        }
 
 
 

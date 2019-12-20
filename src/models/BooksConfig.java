@@ -18,10 +18,10 @@ public class BooksConfig {
     }
 
 
-    public void create(String title, String subject, String author, int isbn, String published)
+    public void create(String title, String subject, String author, int isbn, int amount, String published)
     {
-        final String BOOK_CREATE = "INSERT INTO library ( title, subject, author, ISBN, publish_date)" +
-                " VALUES ('" + title + "', '" + subject + "' , '" + author + "', " + isbn + ",'" + published + "')";
+        final String BOOK_CREATE = "INSERT INTO library ( title, subject, author, ISBN, AMOUNT, publish_date)" +
+                " VALUES ('" + title + "', '" + subject + "' , '" + author + "', " + isbn + ", " + amount + ", '" + published + "')";
         try{
             PreparedStatement stmt = con.conn.prepareStatement(BOOK_CREATE);
             stmt.executeUpdate();
@@ -43,7 +43,7 @@ public class BooksConfig {
     }
 
 
-    public void selectAll()
+    public ResultSet selectAll()
     {
         final String GET_ALL_STUDENT ="SELECT * " +
                 "FROM library";
@@ -51,19 +51,15 @@ public class BooksConfig {
             stmt = con.conn.createStatement();
             ResultSet resultSet;
             resultSet = stmt.executeQuery(GET_ALL_STUDENT);
-            while (resultSet.next()) {
-                String name = resultSet.getString("title");
-                String created_at = resultSet.getString("publish_date");
-                String id = resultSet.getString("id");
-                System.out.println("Student Title: " +name+ "\n" + "Publish date " + created_at + "Id: " + id);
-            }
+            return resultSet;
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
     }
 
 
-    public void selectById(int id)
+    public ResultSet selectById(int id)
     {
         final String GET_STUDENT ="SELECT * " +
                 "FROM library WHERE ID = " + id + " ";
@@ -71,16 +67,11 @@ public class BooksConfig {
             stmt = con.conn.createStatement();
             ResultSet resultSet;
             resultSet = stmt.executeQuery(GET_STUDENT);
-            while (resultSet.next()) {
-                String name = resultSet.getString("title");
-                String created_at = resultSet.getString("publish_date");
-                String idd = resultSet.getString("id");
-                System.out.println("Student Title: " +name+ "\n" + "Publish date " + created_at + "Id: " + idd);
-            }
-            stmt.close();
+            return resultSet;
 
         }catch (SQLException e){
             e.printStackTrace();
+            return null;
         }
     }
 
@@ -99,13 +90,14 @@ public class BooksConfig {
     }
 
 
-    public void update(int id, String title, String subject, String author, int isbn, String publish_date)
+    public void update(int id, String title, String subject, String author, int isbn, int amount, String publish_date)
     {
         final String UPDATE_STUDENT = "UPDATE library SET " +
                 "title = '" + title + "'," +
                 "subject =  '" + subject + "'," +
                 "author = '" + author +"' ,"+
                 "ISBN = " + isbn +" ,"+
+                "AMOUNT =" + amount + ", " +
                 "publish_date = '" + publish_date +"' "+
                 "WHERE ID = " + id + " AND ROLE = 'student'";
         try{

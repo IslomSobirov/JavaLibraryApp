@@ -16,7 +16,7 @@ public class ConnectDb {
             + "CREATED_AT date NOT NULL,"
             + "EMAIL VARCHAR(45) NOT NULL,"
             + "PASSWORD VARCHAR(45) NOT NULL,"
-            + "ROLE VARCHAR(15) NOT NULL)";
+                + "ROLE VARCHAR(15) NOT NULL)";
 
 
     private static final String LIBRARY_TABLE_SQL="CREATE TABLE library ("
@@ -25,6 +25,7 @@ public class ConnectDb {
             + "subject VARCHAR(45) NOT NULL,"
             + "author VARCHAR(45) NOT NULL,"
             + "ISBN INT NOT NULL,"
+            + "AMOUNT INT NOT NULL,"
             + "publish_date DATE NOT NULL)";
 
 
