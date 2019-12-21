@@ -76,51 +76,6 @@ public class Main extends Application {
 
 
 
-
-
-//
-//        BooksConfig book = new BooksConfig(con);
-        //book.create("The selfish gene", "Biology", "Richard Dawkins", 242, 44,"2015-6-8");
-
-//        StudentConfig student = new StudentConfig(con);
-//        System.out.println(student.checkIfExist("atomm262@gmail.com"));
-
-
-
-//        student.selectAll();
-//        ResultSet result = student.selectById(201);
-//        try{
-//            while (result.next()) {
-//                String name = result.getString("name");
-//                String email1 = result.getString("email");
-//                int id = result.getInt("id");
-//                System.out.println("Student name: " +name+ "\n" + "Email " + email1 + " Id: " + id);
-//
-//
-//            }
-//
-//        }catch (SQLException e){
-//            e.printStackTrace();
-//        }
-
-
-
-
-        //BooksConfig book = new BooksConfig(con);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 }
