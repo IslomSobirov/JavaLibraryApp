@@ -44,6 +44,9 @@ public class AddBook {
     private TextField isbn;
 
     @FXML
+    private TextField bookAmount;
+
+    @FXML
     private TextField publish_date;
 
 
@@ -60,10 +63,11 @@ public class AddBook {
         String subject = bookSubject.getText();
         String author = bookAuthor.getText();
         String ISBN = isbn.getText();
+        String AMOUNT = bookAmount.getText();
         String published = publish_date.getText();
 
         //Check weather all fields are filled
-        if (title.isEmpty() || subject.isEmpty() || author.isEmpty() || ISBN.isEmpty() || published.isEmpty()){
+        if (title.isEmpty() || subject.isEmpty() || author.isEmpty() || ISBN.isEmpty() || published.isEmpty() || AMOUNT.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please fill in all fields");
@@ -74,11 +78,19 @@ public class AddBook {
 
         //Convert string to int
         int isbn = Integer.parseInt(ISBN);
+        int amount = Integer.parseInt(AMOUNT);
+        if(amount < 1){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Amount of book has to be more than 0");
+            alert.showAndWait();
+            return;
+        }
 
         //Create book class
         BooksConfig book = new BooksConfig(con);
         //Create book
-        //book.createBook(title, subject, author, isbn, published);
+        book.create(title, subject, author, isbn, amount, published);
 
 
 

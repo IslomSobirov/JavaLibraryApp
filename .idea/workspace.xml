@@ -9,23 +9,18 @@
       <change beforePath="$PROJECT_DIR$/library/log/log1.dat" beforeDir="false" afterPath="$PROJECT_DIR$/library/log/log1.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/log/logmirror.ctrl" beforeDir="false" afterPath="$PROJECT_DIR$/library/log/logmirror.ctrl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/seg0/c400.dat" beforeDir="false" afterPath="$PROJECT_DIR$/library/seg0/c400.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/seg0/c4b0.dat" beforeDir="false" afterPath="$PROJECT_DIR$/library/seg0/c4b0.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/seg0/c4c1.dat" beforeDir="false" afterPath="$PROJECT_DIR$/library/seg0/c4c1.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaProject/controllers/AddStudent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/controllers/AddStudent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaProject/main/ConnectDb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/main/ConnectDb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/seg0/c490.dat" beforeDir="false" afterPath="$PROJECT_DIR$/library/seg0/c490.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/seg0/c4a1.dat" beforeDir="false" afterPath="$PROJECT_DIR$/library/seg0/c4a1.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/seg0/c60.dat" beforeDir="false" afterPath="$PROJECT_DIR$/library/seg0/c60.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/seg0/c81.dat" beforeDir="false" afterPath="$PROJECT_DIR$/library/seg0/c81.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaProject/controllers/AddBook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/controllers/AddBook.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaProject/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaProject/models/BooksConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/models/BooksConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaProject/models/LibrarianConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/models/LibrarianConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaProject/models/StudentConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/models/StudentConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaProject/view/student/addStudent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/view/student/addStudent.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AddLibrarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AddLibrarian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AddStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AddStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ConnectDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ConnectDb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaProject/view/book/addBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/view/book/addBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/AddBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AddBook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/LibrarianConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/LibrarianConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/StudentConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/StudentConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/librarian/addLibrarian.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/librarian/addLibrarian.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/student/addStudent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/student/addStudent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/BooksConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/BooksConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/book/addBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/book/addBook.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,9 +75,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>

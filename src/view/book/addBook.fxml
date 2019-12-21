@@ -23,7 +23,12 @@
         </TextField>
         <TextField fx:id="bookAuthor" prefHeight="50.0" prefWidth="700.0" promptText="Author" VBox.margin="$x1" />
         <TextField fx:id="isbn" prefHeight="50.0" prefWidth="700.0" promptText="ISBN" VBox.margin="$x1" />
-        <TextField fx:id="publish_date" prefHeight="50.0" prefWidth="700.0" promptText="Publish date" />
+        <TextField id="publish_date" fx:id="bookAmount" prefHeight="50.0" prefWidth="700.0" promptText="Amount">
+          <VBox.margin>
+            <Insets bottom="10.0" fx:id="x1" />
+          </VBox.margin>
+        </TextField>
+        <TextField fx:id="publish_date" prefHeight="50.0" prefWidth="700.0" promptText="Punlish date" VBox.margin="$x1" />
       </children>
     </VBox>
     <HBox layoutX="70.0" layoutY="408.0" prefHeight="71.0" prefWidth="560.0">

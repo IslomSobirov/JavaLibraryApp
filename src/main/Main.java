@@ -24,7 +24,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource("/view/student/addStudent.fxml"));
+        Parent loader = FXMLLoader.load(getClass().getResource("/view/book/showBooks.fxml"));
         this.primaryStage = primaryStage;
 
         Scene scene = new Scene(loader);
@@ -57,13 +57,14 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-//        launch(args);
+        launch(args);
 
-        Statement stmt;
-        ConnectDb con = new ConnectDb();
-        con.connect();
-//        con.createLibraryTable();
-        BooksConfig book = new BooksConfig(con);
+//        Statement stmt;
+//        ConnectDb con = new ConnectDb();
+//        con.connect();
+//
+//        BooksConfig book = new BooksConfig(con);
+        //book.create("The selfish gene", "Biology", "Richard Dawkins", 242, 44,"2015-6-8");
 
 //        StudentConfig student = new StudentConfig(con);
 //        System.out.println(student.checkIfExist("atomm262@gmail.com"));
@@ -90,7 +91,6 @@ public class Main extends Application {
 
 
         //BooksConfig book = new BooksConfig(con);
-        //book.createBook("The selfish gene", "Biology", "Richard Dawkins", 222, "2015-6-8");
 
 
 
