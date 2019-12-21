@@ -1,7 +1,4 @@
 package main;
-
-
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,13 +6,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import models.BooksConfig;
+import models.LibrarianConfig;
 import models.StudentConfig;
 
-import javax.xml.transform.Result;
+
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 
 
 public class Main extends Application {
@@ -24,7 +20,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource("/view/book/showBooks.fxml"));
+        Parent loader = FXMLLoader.load(getClass().getResource("/view/librarian/showLibrarians.fxml"));
         this.primaryStage = primaryStage;
 
         Scene scene = new Scene(loader);
@@ -37,13 +33,12 @@ public class Main extends Application {
     public void bookCreate()
     {
         try{
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/student/addStudent.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/librarian/showLibrarian.fxml"));
             AnchorPane pane = loader.load();
             Controller controller = loader.getController();
             controller.setMain(this);
             Scene scene = new Scene(pane);
             primaryStage.setScene(scene);
-
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,6 +57,27 @@ public class Main extends Application {
 //        Statement stmt;
 //        ConnectDb con = new ConnectDb();
 //        con.connect();
+//
+//
+//        LibrarianConfig librarian = new LibrarianConfig(con);
+//        librarian.create("Aziz", "isada@gmial.com", "3434");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
 //        BooksConfig book = new BooksConfig(con);
         //book.create("The selfish gene", "Biology", "Richard Dawkins", 242, 44,"2015-6-8");

@@ -33,10 +33,10 @@ public class LibrarianConfig implements Person{
             stmt.setDate(1, ourJavaDateObject);
             stmt.executeUpdate();
             stmt.close();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("Librarian has been added successfully");
-            alert.showAndWait();
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setHeaderText(null);
+//            alert.setContentText("Librarian has been added successfully");
+//            alert.showAndWait();
             System.out.println("Librarian created");
             return;
         }catch (SQLException e){
@@ -77,6 +77,10 @@ public class LibrarianConfig implements Person{
             stmt = con.conn.createStatement();
             ResultSet resultSet;
             resultSet = stmt.executeQuery(GET_LIBRARIAN);
+            if(resultSet == null)
+            {
+                return null;
+            }
             return resultSet;
 
         }catch (SQLException e){

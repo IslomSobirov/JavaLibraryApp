@@ -32,12 +32,12 @@ public class StudentConfig implements Person{
             stmt.setDate(1, ourJavaDateObject);
             stmt.executeUpdate();
             stmt.close();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("Student has been added successfully");
-            alert.showAndWait();
-            System.out.println("Student created");
-            return;
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setHeaderText(null);
+//            alert.setContentText("Student has been added successfully");
+//            alert.showAndWait();
+//            System.out.println("Student created");
+//            return;
         }catch (SQLException e){
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);

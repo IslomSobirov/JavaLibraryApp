@@ -50,7 +50,6 @@ public class ConnectDb {
     public void createUsersTable()
     {
         try{
-
             stmt = conn.createStatement();
             stmt.executeUpdate(TABLE_SQL);
             System.out.println("Table is created");
