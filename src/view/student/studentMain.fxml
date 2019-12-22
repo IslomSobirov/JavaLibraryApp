@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="anchorPane" prefHeight="537.0" prefWidth="753.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.StudentMain">
+  <children>
+    <BorderPane prefHeight="557.0" prefWidth="760.0">
+      <bottom>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#logout" prefHeight="50.0" prefWidth="130.0" text="Logout" />
+          </children>
+        </HBox>
+      </bottom>
+      <center>
+        <TabPane prefHeight="547.0" prefWidth="590.0" tabClosingPolicy="UNAVAILABLE">
+          <tabs>
+            <Tab text="Books">
+              <content>
+                <HBox alignment="CENTER" prefHeight="370.0" prefWidth="753.0">
+                  <children>
+                    <Button mnemonicParsing="false" onAction="#takeBook" prefHeight="70.0" prefWidth="120.0" text="Take book">
+                      <HBox.margin>
+                        <Insets right="10.0" fx:id="x1" />
+                      </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#borrowedBooks" prefHeight="70.0" prefWidth="120.0" text="Borrowed books">
+                      <HBox.margin>
+                        <Insets right="10.0" fx:id="x1" />
+                      </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#searchBook" prefHeight="70.0" prefWidth="130.0" text="Search book">
+                      <HBox.margin>
+                        <Insets right="10.0" fx:id="x1" />
+                      </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#returnBook" prefHeight="70.0" prefWidth="141.0" text="Return book">
+                      <HBox.margin>
+                        <Insets right="10.0" fx:id="x1" />
+                      </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#allBooks" prefHeight="70.0" prefWidth="141.0" text="All books" />
+                  </children>
+                </HBox>
+              </content>
+            </Tab>
+          </tabs>
+        </TabPane>
+      </center>
+    </BorderPane>
+  </children>
+</StackPane>

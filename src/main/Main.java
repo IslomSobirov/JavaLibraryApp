@@ -5,10 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import models.BooksConfig;
-import models.LibrarianConfig;
-import models.Login;
-import models.StudentConfig;
+import models.*;
 
 
 import java.io.IOException;
@@ -38,14 +35,15 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        launch(args);
+//        launch(args);
 
-//        Statement stmt;
-//        ConnectDb con = new ConnectDb();
-//        con.connect();
-//        Login login = new Login(con);
-//        boolean lg = login.login("student", "atomm262@gmail.com", "islom");
-//        System.out.println(lg);
+        Statement stmt;
+        ConnectDb con = new ConnectDb();
+        con.connect();
+        con.createBorrowedBooksTable();
+        BorrowedBooks login = new BorrowedBooks(con);
+        boolean lg = login.create("adwada@gmail.com", 343, 6);
+        System.out.println(lg);
 //
 ////
 //        LibrarianConfig librarian = new LibrarianConfig(con);

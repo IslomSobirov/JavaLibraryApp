@@ -29,9 +29,9 @@ public class ConnectDb {
             + "publish_date DATE NOT NULL)";
 
     private static final String BORROWED_BOOKS_SQL = "CREATE TABLE borrowedBooks ("
-            + "student_id INT,"
-            + "isbn INT,"
+            + "student_email VARCHAR(45),"
             + "TAKEN_AT date NOT NULL,"
+            + "isbn INT,"
             + "days INT)";
 
 
