@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.AddBook">
+<AnchorPane fx:id="anchorPane" prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.AddBook">
   <children>
     <VBox layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="700.0">
       <children>
@@ -28,7 +28,11 @@
             <Insets bottom="10.0" fx:id="x1" />
           </VBox.margin>
         </TextField>
-        <TextField fx:id="publish_date" prefHeight="50.0" prefWidth="700.0" promptText="Punlish date" VBox.margin="$x1" />
+        <TextField fx:id="publish_date" prefHeight="50.0" prefWidth="700.0" promptText="Punlish date">
+          <VBox.margin>
+            <Insets bottom="10.0" fx:id="x1" />
+          </VBox.margin>
+        </TextField>
       </children>
     </VBox>
     <HBox layoutX="70.0" layoutY="408.0" prefHeight="71.0" prefWidth="560.0">

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane prefHeight="536.0" prefWidth="760.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.LibrarianMain">
+<StackPane prefHeight="536.999977929685" prefWidth="752.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.LibrarianMain">
   <children>
     <BorderPane prefHeight="557.0" prefWidth="760.0">
       <center>
@@ -20,50 +20,54 @@
                   <children>
                     <BorderPane prefHeight="495.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                       <center>
-                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <VBox prefHeight="496.0" prefWidth="424.0">
+                          <children>
+                            <Label prefHeight="35.0" prefWidth="420.0" text="Dashboard of Librarian" />
+                          </children>
+                        </VBox>
                       </center>
                       <left>
                         <VBox prefHeight="495.0" prefWidth="156.0">
                           <children>
-                            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="99.0" prefWidth="156.0" text="Search student">
+                            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#searchStudent" prefHeight="99.0" prefWidth="156.0" text="Search student">
                               <graphic>
-                                <ImageView fitHeight="39.0" fitWidth="52.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="50.50010681152344" fitWidth="50.50010681152344" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                     <Image url="@../../img/searchStudent.png" />
                                   </image>
                                 </ImageView>
                               </graphic>
                             </Button>
-                            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="99.0" prefWidth="156.0" text="Delete student">
+                            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="99.0" prefWidth="156.0" text="Delete student">
                               <graphic>
-                                <ImageView fitHeight="39.0" fitWidth="52.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="36.0" fitWidth="36.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                     <Image url="@../../img/deleteStudent.png" />
                                   </image>
                                 </ImageView>
                               </graphic>
                             </Button>
-                            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="99.0" prefWidth="156.0" text="Search book">
+                            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#searchBook" prefHeight="99.0" prefWidth="156.0" text="Search book">
                               <graphic>
-                                <ImageView fitHeight="39.0" fitWidth="52.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="34.5" fitWidth="34.5" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                     <Image url="@../../img/searchBook.png" />
                                   </image>
                                 </ImageView>
                               </graphic>
                             </Button>
-                            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="99.0" prefWidth="156.0" text="Delete book">
+                            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#deleteBook" prefHeight="99.0" prefWidth="156.0" text="Delete book">
                               <graphic>
-                                <ImageView fitHeight="39.0" fitWidth="52.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="34.5" fitWidth="34.5" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                     <Image url="@../../img/deleteBook.png" />
                                   </image>
                                 </ImageView>
                               </graphic>
                             </Button>
-                            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="99.0" prefWidth="156.0" text="Overdue students">
+                            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#overdueStudents" prefHeight="99.0" prefWidth="156.0" text="Overdue students">
                               <graphic>
-                                <ImageView fitHeight="39.0" fitWidth="52.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="34.5" fitWidth="34.5" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                     <Image url="@../../img/searchStudent.png" />
                                   </image>
@@ -129,7 +133,7 @@
                 </ImageView>
               </graphic>
             </Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#logout" prefHeight="90.0" prefWidth="163.0" text="Logout">
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#logout" prefHeight="89.0" prefWidth="163.0" text="Logout">
               <graphic>
                 <ImageView fitHeight="34.5" fitWidth="46.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                   <image>

@@ -91,18 +91,20 @@ public class LibrarianConfig implements Person{
 
 
     //Delete librarian from database
-    public void delete(int id)
+    public boolean delete(String email)
     {
         final String DELETE_LIBRARIAN = "DELETE " +
-                "FROM users WHERE ID = "+ id + " AND ROLE = 'librarian'";
+                "FROM users WHERE EMAIL = '"+ email + "' AND ROLE = 'librarian'";
         try{
             PreparedStatement stmt  = con.conn.prepareStatement(DELETE_LIBRARIAN);
             stmt.executeUpdate();
             stmt.close();
 
             System.out.println("Successfully deleted!");
+            return true;
         }catch (SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 

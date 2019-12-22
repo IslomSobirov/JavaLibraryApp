@@ -20,6 +20,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+//        Parent loader = FXMLLoader.load(getClass().getResource("/view/student/deleteStudent.fxml"));
         Parent loader = FXMLLoader.load(getClass().getResource("/view/librarian/librarianMain.fxml"));
         this.primaryStage = primaryStage;
         Scene scene = new Scene(loader);

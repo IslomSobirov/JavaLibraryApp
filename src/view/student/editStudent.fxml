@@ -2,13 +2,39 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.student.EditStudent"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.EditStudent">
+  <children>
+    <VBox prefHeight="304.0" prefWidth="600.0" AnchorPane.bottomAnchor="96.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="600.0" text="Modify student" textAlignment="LEFT" />
+        <TextField fx:id="studentName" prefHeight="50.0" prefWidth="600.0" promptText="Student name" text="">
+          <VBox.margin>
+            <Insets bottom="20.0" fx:id="x1" />
+          </VBox.margin>
+        </TextField>
+        <TextField fx:id="studentEmail" prefHeight="50.0" prefWidth="599.9999000000025" promptText="Student email" text="" VBox.margin="$x1" />
+        <TextField fx:id="studentPassword" prefHeight="50.0" prefWidth="600.0" promptText="Student password" text="" VBox.margin="$x1" />
+        <TextField id="studentPassword" fx:id="studentRepeatPassword" prefHeight="50.0" prefWidth="600.0" promptText="Repeat password" text="">
+          <VBox.margin>
+            <Insets bottom="20.0" fx:id="x1" />
+          </VBox.margin>
+        </TextField>
+      </children>
+    </VBox>
+    <HBox alignment="CENTER" layoutX="0.0" layoutY="304.0" prefHeight="82.0" prefWidth="600.0">
+      <children>
+        <Button mnemonicParsing="false" onAction="#saveButton" prefHeight="40.0" prefWidth="143.0" text="Save">
+          <HBox.margin>
+            <Insets right="10.0" />
+          </HBox.margin>
+        </Button>
+        <Button mnemonicParsing="false" onAction="#cancelButton" prefHeight="37.0" prefWidth="143.0" text="Cancel" />
+      </children>
+    </HBox>
+  </children>
 </AnchorPane>

@@ -75,17 +75,19 @@ public class BooksConfig {
         }
     }
 
-    public void delete(int id)
+    public boolean delete(int id)
     {
         final String DELETE_BOOK = "DELETE " +
-                "FROM library WHERE ID = " + id +"";
+                "FROM library WHERE ISBN = " + id +"";
         try{
             PreparedStatement stmt  = con.conn.prepareStatement(DELETE_BOOK);
             stmt.executeUpdate();
             stmt.close();
             System.out.println("Successfully deleted!");
+            return true;
         }catch (SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 

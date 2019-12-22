@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="272.0" prefWidth="548.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.DeleteBook">
+  <children>
+    <VBox prefHeight="243.0" prefWidth="548.0" AnchorPane.bottomAnchor="96.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <Label alignment="CENTER" prefHeight="45.0" prefWidth="548.0" text="Please enter book isbn id to delete book from database">
+          <VBox.margin>
+            <Insets bottom="20.0" top="5.0" />
+          </VBox.margin>
+        </Label>
+        <TextField id="studentEmail" fx:id="bookId" prefHeight="74.0" prefWidth="548.0" promptText="Book isbn id" />
+      </children>
+    </VBox>
+    <HBox alignment="CENTER" layoutX="0.0" layoutY="172.0" prefHeight="100.0" prefWidth="548.0">
+      <children>
+        <Button mnemonicParsing="false" onAction="#deleteButton" prefHeight="45.0" prefWidth="140.0" text="Delete">
+          <HBox.margin>
+            <Insets right="20.0" />
+          </HBox.margin>
+        </Button>
+        <Button mnemonicParsing="false" onAction="#cancelButton" prefHeight="45.0" prefWidth="140.0" text="Cancel" />
+      </children>
+    </HBox>
+  </children>
+</AnchorPane>

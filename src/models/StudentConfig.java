@@ -91,17 +91,19 @@ public class StudentConfig implements Person{
         }
     }
 
-    public void delete(int id)
+    public boolean delete(String email)
     {
         final String DELETE_STUDENT = "DELETE " +
-                "FROM users WHERE ID = "+ id + " AND ROLE = 'student'";
+                "FROM users WHERE EMAIL = '"+ email + "' AND ROLE = 'student'";
         try{
             PreparedStatement stmt  = con.conn.prepareStatement(DELETE_STUDENT);
             stmt.executeUpdate();
             stmt.close();
             System.out.println("Successfully deleted!");
+            return true;
         }catch (SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 
