@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane prefHeight="563.0" prefWidth="760.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.LibrarianMain">
+  <children>
+    <BorderPane prefHeight="557.0" prefWidth="760.0">
+      <center>
+        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+          <tabs>
+            <Tab text="Search student">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <HBox alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="202.0" prefWidth="598.0">
+                      <children>
+                        <VBox alignment="CENTER" prefHeight="236.0" prefWidth="253.0">
+                          <children>
+                            <Label text="Search Student" />
+                            <TextField prefWidth="200.0" promptText="Student email or name" />
+                          </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="235.9998779296875" prefWidth="323.9999000000025">
+                          <children>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Student name" />
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Student email" />
+                          </children>
+                        </VBox>
+                      </children>
+                    </HBox>
+                    <VBox alignment="CENTER" layoutX="9.0" layoutY="202.0" prefHeight="53.0" prefWidth="589.0">
+                      <children>
+                        <Button mnemonicParsing="false" prefWidth="172.0" text="Search" />
+                      </children>
+                    </VBox>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Search book">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="196.0" prefWidth="598.0">
+                  <children>
+                    <HBox alignment="CENTER" layoutX="0.0" layoutY="19.0" prefHeight="227.0" prefWidth="598.0">
+                      <children>
+                        <VBox alignment="CENTER" prefHeight="236.0" prefWidth="253.0">
+                          <children>
+                            <Label text="Search Book" />
+                            <TextField prefWidth="200.0" promptText="Student email or name" />
+                          </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="364.0" prefWidth="324.0">
+                          <children>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Student name" />
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Student email" />
+                          </children>
+                        </VBox>
+                      </children>
+                    </HBox>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+          </tabs>
+        </TabPane>
+      </center>
+      <right>
+        <VBox prefHeight="520.0" prefWidth="163.0">
+          <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#allStudents" prefHeight="89.0" prefWidth="163.0" text="All students">
+              <graphic>
+                <ImageView fitHeight="34.5" fitWidth="46.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../../img/allStudents.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#addStudent" prefHeight="89.0" prefWidth="163.0" text="Add Student">
+              <graphic>
+                <ImageView fitHeight="34.5" fitWidth="46.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../../img/addStudent.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#AllBooks" prefHeight="89.0" prefWidth="163.0" text="All books">
+              <graphic>
+                <ImageView fitHeight="34.5" fitWidth="46.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../../img/Allbooks.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#addBook" prefHeight="89.0" prefWidth="163.0" text="Add book">
+              <graphic>
+                <ImageView fitHeight="34.5" fitWidth="46.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../../img/book.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#borrowedBooks" prefHeight="89.0" prefWidth="163.0" text="Borrowed books">
+              <graphic>
+                <ImageView fitHeight="34.5" fitWidth="46.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../../img/Borrowedbooks.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#logout" prefHeight="87.00009999999747" prefWidth="163.0" text="Logout">
+              <graphic>
+                <ImageView fitHeight="34.5" fitWidth="46.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../../img/logout.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+          </children>
+        </VBox>
+      </right>
+      <top>
+        <MenuBar>
+          <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Close" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Delete" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="About" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+      </top>
+    </BorderPane>
+  </children>
+</StackPane>

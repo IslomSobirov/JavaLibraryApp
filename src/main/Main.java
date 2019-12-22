@@ -20,31 +20,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource("/view/librarian/showLibrarians.fxml"));
+        Parent loader = FXMLLoader.load(getClass().getResource("/view/librarian/librarianMain.fxml"));
         this.primaryStage = primaryStage;
-
         Scene scene = new Scene(loader);
         primaryStage.setScene(scene);
-
         primaryStage.show();
         
     }
 
-    public void bookCreate()
-    {
-        try{
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/librarian/showLibrarian.fxml"));
-            AnchorPane pane = loader.load();
-            Controller controller = loader.getController();
-            controller.setMain(this);
-            Scene scene = new Scene(pane);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-    }
 
 
 
