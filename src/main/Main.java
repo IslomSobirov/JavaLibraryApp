@@ -7,11 +7,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import models.BooksConfig;
 import models.LibrarianConfig;
+import models.Login;
 import models.StudentConfig;
 
 
 import java.io.IOException;
-
+import java.sql.Statement;
 
 
 public class Main extends Application {
@@ -20,8 +21,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-//        Parent loader = FXMLLoader.load(getClass().getResource("/view/student/deleteStudent.fxml"));
-        Parent loader = FXMLLoader.load(getClass().getResource("/view/librarian/librarianMain.fxml"));
+//        Parent loader = FXMLLoader.load(getClass().getResource("/view/login/loginPage.fxml"));
+        Parent loader = FXMLLoader.load(getClass().getResource("/view/admin/adminMain.fxml"));
         this.primaryStage = primaryStage;
         Scene scene = new Scene(loader);
         primaryStage.setScene(scene);
@@ -42,8 +43,11 @@ public class Main extends Application {
 //        Statement stmt;
 //        ConnectDb con = new ConnectDb();
 //        con.connect();
+//        Login login = new Login(con);
+//        boolean lg = login.login("student", "atomm262@gmail.com", "islom");
+//        System.out.println(lg);
 //
-//
+////
 //        LibrarianConfig librarian = new LibrarianConfig(con);
 //        librarian.create("Aziz", "isada@gmial.com", "3434");
 

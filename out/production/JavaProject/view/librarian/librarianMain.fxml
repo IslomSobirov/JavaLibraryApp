@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane prefHeight="536.999977929685" prefWidth="752.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.LibrarianMain">
+<StackPane fx:id="anchorPane" prefHeight="536.999977929685" prefWidth="752.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controllers.LibrarianMain">
   <children>
     <BorderPane prefHeight="557.0" prefWidth="760.0">
       <center>
-        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane prefHeight="547.0" prefWidth="590.0" tabClosingPolicy="UNAVAILABLE">
           <tabs>
             <Tab text="Dashboard">
               <content>
@@ -27,7 +27,7 @@
                         </VBox>
                       </center>
                       <left>
-                        <VBox prefHeight="495.0" prefWidth="156.0">
+                        <VBox prefHeight="496.0" prefWidth="170.0">
                           <children>
                             <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#searchStudent" prefHeight="99.0" prefWidth="156.0" text="Search student">
                               <graphic>

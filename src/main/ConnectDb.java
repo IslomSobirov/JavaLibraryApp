@@ -28,6 +28,14 @@ public class ConnectDb {
             + "AMOUNT INT NOT NULL,"
             + "publish_date DATE NOT NULL)";
 
+    private static final String BORROWED_BOOKS_SQL = "CREATE TABLE borrowedBooks ("
+            + "student_id INT,"
+            + "isbn INT,"
+            + "TAKEN_AT date NOT NULL,"
+            + "days INT)";
+
+
+
 
     public void connect(){
         try {
@@ -63,6 +71,17 @@ public class ConnectDb {
         try{
             stmt = conn.createStatement();
             stmt.executeUpdate(LIBRARY_TABLE_SQL);
+            System.out.println("Table is created");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void createBorrowedBooksTable()
+    {
+        try{
+            stmt = conn.createStatement();
+            stmt.executeUpdate(BORROWED_BOOKS_SQL);
             System.out.println("Table is created");
         }catch (SQLException e){
             e.printStackTrace();

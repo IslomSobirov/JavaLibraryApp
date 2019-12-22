@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -27,6 +28,8 @@ public class LibrarianMain {
     private URL location;
 
 
+    @FXML
+    private StackPane anchorPane;
 
     @FXML
     void deleteBook(ActionEvent event) {
@@ -78,6 +81,9 @@ public class LibrarianMain {
 
     @FXML
     void logout(ActionEvent event) {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
+        openWindow("/view/login/loginPage.fxml", "Login");
     }
 
     void openWindow(String link, String title){
