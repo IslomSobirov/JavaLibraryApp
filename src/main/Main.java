@@ -18,8 +18,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-//        Parent loader = FXMLLoader.load(getClass().getResource("/view/login/loginPage.fxml"));
-        Parent loader = FXMLLoader.load(getClass().getResource("/view/admin/adminMain.fxml"));
+        Parent loader = FXMLLoader.load(getClass().getResource("/view/login/loginPage.fxml"));
+//        Parent loader = FXMLLoader.load(getClass().getResource("/view/admin/adminMain.fxml"));
         this.primaryStage = primaryStage;
         Scene scene = new Scene(loader);
         primaryStage.setScene(scene);
@@ -35,19 +35,16 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-//        launch(args);
+        launch(args);
 
-        Statement stmt;
-        ConnectDb con = new ConnectDb();
-        con.connect();
-        con.createBorrowedBooksTable();
-        BorrowedBooks login = new BorrowedBooks(con);
-        boolean lg = login.create("adwada@gmail.com", 343, 6);
-        System.out.println(lg);
-//
-////
+
+
+
+//        StudentConfig student = new StudentConfig(con);
+//        student.create("student", "studentaccount@mail.ru", "987654321");
 //        LibrarianConfig librarian = new LibrarianConfig(con);
-//        librarian.create("Aziz", "isada@gmial.com", "3434");
+//        librarian.create("librarian","librarianaccount@mail.ru", "012345678");
+
 
 
 

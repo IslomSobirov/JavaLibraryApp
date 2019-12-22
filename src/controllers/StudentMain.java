@@ -28,7 +28,7 @@ public class StudentMain {
 
     @FXML
     void allBooks(ActionEvent event) {
-        openWindow("/view/book/allBooks.fxml", "All books");
+        openWindow("/view/book/showBooks.fxml", "All books");
     }
 
     @FXML

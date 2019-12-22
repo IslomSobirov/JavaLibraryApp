@@ -24,7 +24,7 @@ public class AdminConfig implements Person{
 
         java.sql.Date ourJavaDateObject = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
-        final String ADMIN_CREATE = "INSERT INTO admins ( NAME, CREATED_AT, EMAIL, PASSWORD, ROLE)" +
+        final String ADMIN_CREATE = "INSERT INTO users ( NAME, CREATED_AT, EMAIL, PASSWORD, ROLE)" +
                 " VALUES ('" + name + "' , ? ,'" + email + "' , '" + password + "', 'admin')";
         try{
 

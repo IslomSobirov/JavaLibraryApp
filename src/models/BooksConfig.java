@@ -26,12 +26,12 @@ public class BooksConfig {
             PreparedStatement stmt = con.conn.prepareStatement(BOOK_CREATE);
             stmt.executeUpdate();
             stmt.close();
-//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//            alert.setHeaderText("Book is added");
-//            alert.setContentText("Book has been created successfully");
-//            alert.showAndWait();
-//            System.out.println("Book is added!");
-//            return;
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Book is added");
+            alert.setContentText("Book has been created successfully");
+            alert.showAndWait();
+            System.out.println("Book is added!");
+            return;
         }catch (SQLException e){
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);

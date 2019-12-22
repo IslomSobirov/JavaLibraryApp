@@ -46,9 +46,6 @@ public class ConnectDb {
             String password = "root";
             conn = DriverManager.getConnection(dbURL, user, password);
 
-            System.out.println("Connected");
-
-
         }catch (ClassNotFoundException | SQLException e){
             e.printStackTrace();
         }
